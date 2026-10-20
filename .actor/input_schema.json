@@ -1,0 +1,31 @@
+{
+  "title": "Google Maps & Local B2B Extractor Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQueries": {
+      "title": "Search Queries (Category + City)",
+      "type": "array",
+      "description": "List of commercial search queries (e.g., 'dental clinic Miami', 'accounting firm Austin', 'software company Berlin').",
+      "editor": "stringList",
+      "default": [
+        "coworking London"
+      ]
+    },
+    "maxResultsPerQuery": {
+      "title": "Max Results Per Query",
+      "type": "integer",
+      "description": "Maximum number of business places to extract per query.",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "enrichFromWebsite": {
+      "title": "Enrich Email & Phone from Business Website",
+      "type": "boolean",
+      "description": "When a business listing includes a website URL, crawl the homepage to extract missing corporate email addresses and phone numbers.",
+      "default": true
+    }
+  },
+  "required": ["searchQueries"]
+}

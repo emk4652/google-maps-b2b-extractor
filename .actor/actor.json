@@ -1,0 +1,38 @@
+{
+  "actorSpecification": 1,
+  "name": "google-maps-b2b-extractor",
+  "title": "Google Maps & Local B2B Business Directory Extractor",
+  "description": "Extracts local B2B business listings, physical addresses, coordinates, phone numbers, corporate websites, and verified contact emails by location and industry category.",
+  "version": "1.0.0",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Extracted B2B Local Places Dataset",
+      "views": {
+        "overview": {
+          "title": "Local B2B Businesses",
+          "transformation": {
+            "fields": [
+              "businessName",
+              "category",
+              "city",
+              "phone",
+              "email",
+              "website",
+              "address",
+              "latitude",
+              "longitude"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      }
+    }
+  }
+}
